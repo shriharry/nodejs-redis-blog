@@ -1,5 +1,5 @@
 # nodejs-redis-blog
-This is simple blog, where user can register, upload photo, write blog and can see recent 5 blog posts of any one. This blog application is created using nodeJS and redis cache (hash &amp; list).
+This is simple blog, where user can register, upload photo, write blog and can see all recent blog posts of any user. This blog application is created using nodeJS and redis cache (hash &amp; list).
 
 #Install Node and Redis
 Go to http://nodejs.org and install NodeJS
