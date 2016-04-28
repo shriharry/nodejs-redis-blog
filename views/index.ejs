@@ -1,0 +1,61 @@
+<% include header %>
+<script>
+    $(function() {
+     addNewEntry();
+     console.log("executed..");
+     function addNewEntry(id, description) {
+         console.log("inside...");
+          var entry = $($("#todotemplate").html());
+          console.log(entry);
+          $("#todos").prepend(entry);
+     }
+     
+    $('.login').on('click',function(){
+         var username = $("#username").val();
+         var password = $("#password").val();
+         console.log("clicked event called");
+        if($.trim(username) && $.trim(password)){
+
+            $('#loginError').html('');
+            $.post('/blog/login', { username: username, password: password }, function(res) {
+                console.log(res.message);
+                if(res.error == "true"){
+                    $('#loginError').html(res.message);
+                }else{
+                    window.location = '/profile';
+                }
+            });
+         }
+    });
+ });
+    </script>
+
+<span id='loginError'></span>
+    <table>
+        <tr>
+        <td colspan="2">Login:</td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" id="username"></td>
+        </tr>
+        <tr> 
+            <td>Password:</td>
+            <td><input type="password" id="password"></td>
+        </td>
+        <tr>
+        <td>
+            <input type="button" value="Login" class="login">
+        </td>
+        <td>
+            <input type="button" value="Cancel" class="cancel">
+        </td>
+        </tr>
+    </table>
+    <a href="/blog/register" class="register">Not Registered Yet? Click Here to Register</a>
+</div>
+
+<div class="row" id="todos">
+</div>
+
+<% include footer %>

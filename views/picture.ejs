@@ -1,0 +1,12 @@
+<% include header %>
+<a href="/profile"> < back</a> |	<a href="/logout">Logout</a>
+<br><br>
+<h3>File Upload:</h3>
+Select a file to upload: <br />
+<form action="/file_upload" method="POST" 
+      enctype="multipart/form-data">
+<input type="file" name="avatar" size="50" />
+<br />
+<input type="submit" class="upload" value="Upload File" />
+</form>
+<% include footer %>

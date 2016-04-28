@@ -1,0 +1,36 @@
+<% include header %>
+<a href="/logout">Logout</a>
+<% if(message != "" && typeof message != 'undefined'){  %>
+<span style="color:green"><%= message %></span>
+<% } %>
+<table>
+<tr><td valign="top">
+<table>
+<tr><td>Profile Information</td></tr>
+<tr><td>
+<% if(profilePhoto == "" || profilePhoto == null){  %>
+	<img src='../public/images/default.png' height="200" width="200"><br> 
+	<a href='/'>[ Click here to upload profile photo]</a>
+<% }else{ %>	
+<img src=<%= profilePhoto %> height="200" width="200"><br>
+<a href='/'>[ Change profile photo]</a>
+<% } %>
+ </span></td></tr>
+<tr><td><%= fullName %></td></tr>
+<tr><td><%= emailAddress %></td></tr>
+</table>
+</td><td>
+<table>
+<tr><td>Recent blogs..<a href="/createBlog">[+ Create Blog]</a></td></tr>
+<tr><td>
+		<ul>
+<% for(var i=0; i<blogData.length; i++) { %>
+	<li><%- link_to(blogData[i].title, 'blog/'+blogData[i].blogId) %></li>
+<% } %>
+</ul>
+	</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<% include footer %>

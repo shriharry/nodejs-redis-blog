@@ -1,0 +1,11 @@
+<% include header %>
+<a href="/profile"> < back</a> | <a href="/logout">Logout</a>
+
+<form name="frmCreateBlog" id="frmCreateBlog" method="Post" action="/createBlog">
+<table cellpadding="10">
+<tr><td colspan="2">Create Blog</td></tr>
+<tr><td>Title</td><td><input type="text" name="title" id="title"></td></tr>
+<tr><td>Content</td><td><textarea name="content" id="content"></textarea></td></tr>
+<tr><td colspan="2"><input type="submit" value="Create Blog" id="createBlog"></td></tr>
+</table>
+<% include footer %>

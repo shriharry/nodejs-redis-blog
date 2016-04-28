@@ -1,0 +1,58 @@
+<% include header %>
+<script>
+    $(function(){
+        $('.register').on('click',function(){
+            console.log("triggered");
+            $('#fError, #lError, #eError, #pError, #cpError').html("");
+            $.post('/blog/register', $('#form1').serialize(),function(data){
+
+                if(data.success === false){
+                    var errors = data.errors;
+ 
+                    $.each(errors,function(key,value){ 
+                        
+                        if(key == "firstname"){
+                            $('#fError').html(value);
+                        }
+                        if(key == "lastname"){
+                            $('#lError').html(value);
+                        }
+                        if(key == "emailAddress"){
+                            $('#eError').html(value);
+                        }
+                        if(key == "password"){
+                            $('#pError').html(value);
+                        }
+                        if(key == "confirmPassword"){
+                            $('#cpError').html(value);
+                        }
+                    });
+                }else{
+                    window.location = "/profile";
+                }
+            });
+        });
+    });
+    </script>
+    <style>
+    span{
+        color:red;
+    }
+    </style>
+     
+<form name="form1" id="form1" method="post" enctype="multipart/form-data">
+
+<table>
+    <tr>
+        <td colspan="2">Register:</td>
+    </tr>
+    <tr><td>First Name</td><td><input type="text" name="firstname" id="firstname" ><span id="fError"></span></td></tr>
+    <tr><td>Last Name</td><td><input type="text" name="lastname" id="lastname" ><span id="lError"></span></td></tr>
+    <tr><td>Email Address</td><td><input type="text" name="emailAddress" id="emailAddress" ><span id="eError"></span></td></tr>
+    <tr><td>Password</td><td><input type="text" name="password" id="password" ><span id="pError"></span></td></tr>
+    <tr><td>Confirm Password</td><td><input type="text" name="confirmPassword" id="confirmPassword" ><span id="cpError"></span></td></tr>
+    <tr><td><input type="button" value="Register" class="register"></td><td><input type="Reset" value="Clear" class="clear"></td></tr>
+</table>
+</form>
+<a href="/">Already a member? Sign in</a>
+<% include footer %>
