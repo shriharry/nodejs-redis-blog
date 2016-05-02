@@ -19,5 +19,5 @@ node server.js
 
 Then navigate to ``` http://localhost:3000 ```
 
-#Note: 
-Please create empty folder tmp in your root directory. Files are uploaded at tmp folder first after that they are moved to public/images directory.( You can customize this file location as per your need.)
+#Note:
+Files are uploaded at tmp folder first after that they are moved to public/images directory.( You can customize this file location as per your need.)
