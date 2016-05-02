@@ -22,9 +22,7 @@ var client = redis.createClient();
 app.use('/public', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.locals({
-    link_to : helpers.link_to
-});
+app.locals.link_to = helpers.link_to;
 
 app.use(session({
   secret: "topSecrete",

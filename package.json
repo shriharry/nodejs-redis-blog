@@ -1,6 +1,6 @@
 {
   "name": "nodejs-redis-blog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple blog application using node.js and redis",
   "main": "server.js",
   "scripts": {
